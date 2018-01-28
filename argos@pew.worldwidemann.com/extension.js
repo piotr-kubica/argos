@@ -92,8 +92,9 @@ function addButtons() {
     let file = enumerator.get_child(fileInfo);
 
     if (GLib.file_test(file.get_path(), GLib.FileTest.IS_EXECUTABLE) &&
-      !GLib.file_test(file.get_path(), GLib.FileTest.IS_DIR) &&
-      !file.get_basename().startsWith(".")) {
+	!GLib.file_test(file.get_path(), GLib.FileTest.IS_DIR) &&
+	!file.get_basename().startsWith(".") &&
+        !file.get_basename().endsWith("~")) {
       files.push(file);
     }
   }
